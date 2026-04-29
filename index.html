@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Productivity Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">AI<span>Boost</span></div>
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showSection('home')">Overview</button>
+    <button class="tab-btn" onclick="showSection('photo')">Photos</button>
+    <button class="tab-btn" onclick="showSection('video')">Video</button>
+  </div>
+</nav>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()" title="Back to top">↑</button>
+
+<!-- LIGHTBOX MODAL -->
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div>
+        <div class="modal-step-label" id="modal-step-label"></div>
+        <div class="modal-title" id="modal-title"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-image-wrap" id="modal-image-wrap"></div>
+    <div class="modal-footer">
+      <span class="modal-counter" id="modal-counter"></span>
+      <div class="modal-nav">
+        <button class="modal-nav-btn" id="btn-prev" onclick="navigateModal(-1)">← Prev</button>
+        <button class="modal-nav-btn" id="btn-next" onclick="navigateModal(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top:70px">
+
+<!-- HERO -->
+<div id="home" class="hero">
+  <div class="hero-badge">Step-by-Step Automation Guide</div>
+  <h1>Automate Your<br><em>Creative Workflow</em></h1>
+  <p class="hero-sub">A practical walkthrough of AI tools for photo editing and video production — cut hours of work down to seconds.</p>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="showSection('photo')">Photo Automation →</button>
+    <button class="btn-ghost" onclick="showSection('video')">Video Automation →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     PHOTO SECTION
+══════════════════════════════ -->
+<section id="photo">
+  <div class="section-label">Module 01 — Photo Automation</div>
+  <h2 class="section-title">Automate Photo Editing<br>with AI</h2>
+  <p class="section-desc">Step-by-step walkthroughs for background removal, enhancement, object removal, and image expansion. Click any screenshot to view fullscreen.</p>
+
+  <!-- STEP 1: Background Removal -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">01</div>
+      <div class="step-header-text">
+        <h3>Background Removal</h3>
+        <p>Use <strong>Remove.bg</strong>, <strong>Canva AI</strong> or <strong>Adobe Firefly</strong> to strip backgrounds instantly. Upload your image, the AI detects the subject edges, and you download a clean transparent PNG — no manual masking needed.</p>
+        <div class="step-tags">
+          <span class="tag tag-cyan">Remove.bg</span>
+          <span class="tag tag-purple">Canva AI</span>
+          <span class="tag tag-orange">Adobe Firefly</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid" data-step="Step 01 — Background Removal">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to Remove.bg and upload your image">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/removebg1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Go to Remove.bg and upload your image</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="AI automatically detects and isolates the subject">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/removebg2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>AI detects and isolates the subject</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Download the transparent PNG result">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/removebg3.png" alt="Step 3"></span></div>
+        <div class="thumb-label"><strong>Step 3</strong>Download the transparent PNG result</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Download the transparent PNG result">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/removebg4.png" alt="Step 4"></span></div>
+        <div class="thumb-label"><strong>Step 4</strong>Download the transparent PNG result</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Image Enhancement -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">02</div>
+      <div class="step-header-text">
+        <h3>Image Enhancement</h3>
+        <p><strong>Remini</strong>, <strong>Luminar Neo</strong> or <strong>Lightroom AI</strong> automatically fix exposure, sharpen details, reduce noise, and boost colors. Define a preset once, then batch-process entire folders in one click.</p>
+        <div class="step-tags">
+          <span class="tag tag-cyan">Remini</span>
+          <span class="tag tag-purple">Luminar Neo</span>
+          <span class="tag tag-green">Lightroom AI</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid cols-4" data-step="Step 02 — Image Enhancement">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to remini.com">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/enhancer1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Go to remini.com</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Click Enhance on remini web">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/enhancer2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>Click Enhance on remini web</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Export — or batch export entire folder">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/enhancer3.png" alt="Step 3"></span></div>
+        <div class="thumb-label"><strong>Step 3</strong>Upload photo</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Drag slicer">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/enhancer4.png" alt="Step 4"></span></div>
+        <div class="thumb-label"><strong>Step 4</strong>Drag slicer</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Click download">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/enhancer5.png" alt="Step 5"></span></div>
+        <div class="thumb-label"><strong>Step 5</strong>Click download</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Download">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/enhancer6.png" alt="Step 6"></span></div>
+        <div class="thumb-label"><strong>Step 6</strong>Download</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Object Removal -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">03</div>
+      <div class="step-header-text">
+        <h3>Object Removal</h3>
+        <p>Use <strong>Cleanup.pictures</strong>, <strong>Clipdrop</strong> or <strong>Photoroom</strong> to erase unwanted objects. Brush over the area, hit remove — AI reconstructs the background using surrounding context.</p>
+        <div class="step-tags">
+          <span class="tag tag-orange">Cleanup</span>
+          <span class="tag tag-cyan">Clipdrop</span>
+          <span class="tag tag-purple">Photoroom</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid" data-step="Step 03 — Object Removal">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to cleanp.pictures and add photo">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/objremover1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Go to cleanp.pictures and add photo</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Brush over the unwanted object to mask it">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/objremover2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>Brush over the unwanted object to mask it</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Once filled, wait for a while">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/objremover3.png" alt="Step 3"></span></div>
+        <div class="thumb-label"><strong>Step 3</strong>Once filled, wait for a while</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Check results">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/objremover4.png" alt="Step 4"></span></div>
+        <div class="thumb-label"><strong>Step 4</strong>Check results</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Image Expansion -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">04</div>
+      <div class="step-header-text">
+        <h3>Image Expansion (Outpainting)</h3>
+        <p>Extend your image beyond its original frame using <strong>Monica.im</strong>, <strong>Midjourney</strong> or <strong>DALL·E 3</strong>. Perfect for converting portrait shots to landscape for banners, ads, and thumbnails.</p>
+        <div class="step-tags">
+          <span class="tag tag-orange">Monica.im</span>
+          <span class="tag tag-cyan">DALL·E 3</span>
+          <span class="tag tag-green">Midjourney</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid cols-4" data-step="Step 04 — Image Expansion">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to monica.im and add photo">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/extender1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Go to monica.im and add photo</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Drag box to expand">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/extender2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>Drag box to expand</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Wait for a few secs">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/extender3.png" alt="Step 3"></span></div>
+        <div class="thumb-label"><strong>Step 3</strong>Wait for a few secs</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Click download">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/extender4.png" alt="Step 4"></span></div>
+        <div class="thumb-label"><strong>Step 4</strong>Click download</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <button class="btn-primary" onclick="showSection('video')">Next: Video Automation →</button>
+    <button class="btn-ghost" onclick="showSection('home')">← Overview</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     VIDEO SECTION
+══════════════════════════════ -->
+<section id="video">
+  <div class="section-label">Module 02 — Video Automation</div>
+  <h2 class="section-title">Automate Video Production<br>with AI</h2>
+  <p class="section-desc">Captions, repurposing long-form to shorts, and AI voiceovers — step by step. Click any screenshot to view fullscreen.</p>
+
+  <!-- STEP 1: Caption Generation -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">01</div>
+      <div class="step-header-text">
+        <h3>Caption Generation</h3>
+        <p>Upload your video to <strong>Opus Clip</strong> or <strong>Submagic</strong> and get 99% accurate, auto-styled subtitles in seconds. Export animated captions for social or a clean SRT for YouTube.</p>
+        <div class="step-tags">
+          <span class="tag tag-cyan">Opus Clip</span>
+          <span class="tag tag-purple">Kapwing</span>
+          <span class="tag tag-green">Submagic</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid cols-4" data-step="Step 01 — Caption Generation">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Get link from youtube">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/caption1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Get link from youtube</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to Opusclip and paste URL or upload your own video">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/caption2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>Go to Opusclip and paste URL or upload your own video</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Loading">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/caption3.png" alt="Step 3"></span></div>
+        <div class="thumb-label"><strong>Step 3</strong>Loading</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Style and customize captions">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/caption4.png" alt="Step 4"></span></div>
+        <div class="thumb-label"><strong>Step 4</strong>Style and customize captions</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Wait for loading">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/caption5.png" alt="Step 5"></span></div>
+        <div class="thumb-label"><strong>Step 5</strong>Wait for loading</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Export with captions">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/caption6.png" alt="Step 6"></span></div>
+        <div class="thumb-label"><strong>Step 6</strong>Export with captions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Long-form → Shorts -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">02</div>
+      <div class="step-header-text">
+        <h3>Long-form → TikTok / Reels / Shorts</h3>
+        <p><strong>Opus Clip</strong> scans your long video, scores the most engaging moments, auto-clips and reframes to vertical 9:16, and adds captions — turning a 30-min video into 10 ready-to-post clips in minutes.</p>
+        <div class="step-tags">
+          <span class="tag tag-orange">Opus Clip</span>
+          <span class="tag tag-cyan">Munch</span>
+          <span class="tag tag-purple">Vidyo.ai</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid cols-4" data-step="Step 02 — Long-form to Short-form">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Get a link of the video you want to clip">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/clipping1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Get a link of the video you want to clip</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to Opusclip and paste the URL or upload your own video">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/clipping2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>Go to Opusclip and paste the URL or upload your own video</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Click get clips in 1 click">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/clipping3.png" alt="Step 3"></span></div>
+        <div class="thumb-label"><strong>Step 3</strong>Click get clips in 1 click</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Wait for it to load">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/clipping4.png" alt="Step 4"></span></div>
+        <div class="thumb-label"><strong>Step 4</strong>Wait for it to load</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Export ready for TikTok / Reels">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/clipping5.png" alt="Step 5"></span></div>
+        <div class="thumb-label"><strong>Step 5</strong>Export ready for TikTok / Reels</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: AI Voiceover -->
+  <div class="step-group">
+    <div class="step-header">
+      <div class="step-number-badge">03</div>
+      <div class="step-header-text">
+        <h3>AI Voiceover</h3>
+        <p>Use <strong>ElevenLabs</strong> or <strong>Murf.ai</strong> to generate a realistic voiceover from your script. Paste text, pick a voice, adjust pacing — then drop the MP3 directly into your video editor. No recording setup needed.</p>
+        <div class="step-tags">
+          <span class="tag tag-cyan">ElevenLabs</span>
+          <span class="tag tag-purple">Murf.ai</span>
+          <span class="tag tag-green">Play.ht</span>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-grid" data-step="Step 03 — AI Voiceover">
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Get prompt from chatGPT or use your own">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/voice1.png" alt="Step 1"></span></div>
+        <div class="thumb-label"><strong>Step 1</strong>Get prompt from chatGPT or use your own</div>
+      </div>
+      <div class="screenshot-thumb" onclick="openModal(this)" data-label="Go to ElevenLabs, paste and adjust settings to your liking and hit generate">
+        <div class="thumb-placeholder"><span class="thumb-placeholder-icon"></span><span class="thumb-placeholder-hint"><img class="thumb-img" src="images/voice2.png" alt="Step 2"></span></div>
+        <div class="thumb-label"><strong>Step 2</strong>Go to ElevenLabs, paste and adjust settings to your liking and hit generate</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <button class="btn-primary" onclick="showSection('photo')">← Photo Automation</button>
+    <button class="btn-ghost" onclick="showSection('home')">Back to Overview</button>
+  </div>
+</section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
